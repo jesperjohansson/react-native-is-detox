@@ -26,9 +26,10 @@ public class IsDetoxModule extends ReactContextBaseJavaModule {
         return NAME;
     }
 
+    @ReactMethod
     public void isDetox(Promise promise) {
       try {
-        Class<?> instrumentationRegistry = Class.forName("android.support.test.InstrumentationRegistry");
+        Class<?> instrumentationRegistry = Class.forName("androidx.test.platform.app.InstrumentationRegistry");
         Method getArguments = instrumentationRegistry.getMethod("getArguments");
         Bundle args = (Bundle) getArguments.invoke(null);
         boolean argsContainDetox = args != null && args.getString("detoxServer") != null;
@@ -38,5 +39,5 @@ public class IsDetoxModule extends ReactContextBaseJavaModule {
       }
     }
 
-    public static native int nativeMultiply(int a, int b);
+    public static native boolean isDetox();
 }
