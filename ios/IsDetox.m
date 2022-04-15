@@ -4,16 +4,14 @@
 
 RCT_EXPORT_MODULE()
 
-// Example method
-// See // https://reactnative.dev/docs/native-modules-ios
-RCT_REMAP_METHOD(multiply,
-                 multiplyWithA:(nonnull NSNumber*)a withB:(nonnull NSNumber*)b
+RCT_REMAP_METHOD(isDetox,
                  withResolver:(RCTPromiseResolveBlock)resolve
                  withRejecter:(RCTPromiseRejectBlock)reject)
 {
-  NSNumber *result = @([a floatValue] * [b floatValue]);
+    NSArray<NSString *> *args = [[NSProcessInfo processInfo] arguments];
+    BOOL argsContainDetox = [args containsObject: @"-detoxServer"];
 
-  resolve(result);
+    resolve(@(argsContainDetox));
 }
 
 @end
