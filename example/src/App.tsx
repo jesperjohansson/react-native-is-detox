@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { StyleSheet, View, Text } from 'react-native';
-import isDetox from 'react-native-is-detox';
+import { isDetox } from 'react-native-is-detox';
 
 export default function App() {
   const [result, setResult] = React.useState<string | undefined>();
