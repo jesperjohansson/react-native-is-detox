@@ -1,6 +1,6 @@
 {
   "name": "react-native-is-detox",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Checks whether current app instance is launched by Detox or not",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
