@@ -6,7 +6,7 @@ const LINKING_ERROR =
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo managed workflow\n';
 
-const IsDetox = NativeModules.IsDetox
+const IsDetoxModule = NativeModules.IsDetox
   ? NativeModules.IsDetox
   : new Proxy(
       {},
@@ -17,6 +17,6 @@ const IsDetox = NativeModules.IsDetox
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return IsDetox.multiply(a, b);
+export function isDetox(): Promise<boolean> {
+  return IsDetoxModule.isDetox();
 }
