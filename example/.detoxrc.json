@@ -5,7 +5,8 @@
   "apps": {
     "ios": {
       "type": "ios.app",
-      "binaryPath": "SPECIFY_PATH_TO_YOUR_APP_BINARY"
+      "build": "xcodebuild -workspace ios/IsDetoxExample.xcworkspace -scheme IsDetoxExample -sdk iphonesimulator -derivedDataPath ios/build -configuration Debug",
+      "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/IsDetoxExample.app"
     },
     "android": {
       "type": "android.apk",
@@ -16,7 +17,7 @@
     "simulator": {
       "type": "ios.simulator",
       "device": {
-        "type": "iPhone 11"
+        "type": "iPhone 12"
       }
     },
     "emulator": {
