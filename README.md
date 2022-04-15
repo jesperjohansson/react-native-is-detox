@@ -1,26 +1,22 @@
 # react-native-is-detox
 
-Checks whether current app is a Detox build or not
+Checks whether current app instance is launched by Detox or not
 
 ## Installation
 
 ```sh
-npm install react-native-is-detox
+yarn add react-native-is-detox
 ```
 
 ## Usage
 
 ```js
-import { multiply } from "react-native-is-detox";
+import { isDetox } from 'react-native-is-detox';
 
 // ...
 
-const result = await multiply(3, 7);
+const result = await isDetox();
 ```
-
-## Contributing
-
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
 
 ## License
 
