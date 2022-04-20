@@ -7,7 +7,11 @@ describe('Example', () => {
     await device.reloadReactNative();
   });
 
-  it('should say its detox', async () => {
-    await expect(element(by.id('result'))).toHaveText('true');
+  it('async result should say its detox', async () => {
+    await expect(element(by.id('result-async'))).toHaveText('true');
+  });
+
+  it('sync result should say its detox', async () => {
+    await expect(element(by.id('result-sync'))).toHaveText('true');
   });
 });
