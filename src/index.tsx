@@ -17,6 +17,24 @@ const IsDetoxModule = NativeModules.IsDetox
       }
     );
 
+/**
+ * @example <caption>Using Promise</caption>
+ * isDetox().then(result => console.log('Was app launched by Detox?', result));
+ * @example <caption>Using async await</caption>
+ * const result = await isDetox();
+ * console.log('Was app launched by Detox?', result);
+ * @returns Promise with a boolean for whether or not the app was launched by Detox
+ */
 export function isDetox(): Promise<boolean> {
   return IsDetoxModule.isDetox();
+}
+
+/**
+ * @example
+ * const result = isDetoxSync();
+ * console.log('Was app launched by Detox?', result);
+ * @returns Boolean for whether or not the app was launched by Detox
+ */
+export function isDetoxSync(): boolean {
+  return IsDetoxModule.isDetoxSync();
 }
