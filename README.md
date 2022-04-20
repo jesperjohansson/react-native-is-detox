@@ -61,6 +61,14 @@ function App() {
 }
 ```
 
+## Mock module in Jest
+
+Import `react-native-is-detox/jestSetup` in your Jest setup file.
+
+```js
+import 'react-native-is-detox/jestSetup';
+```
+
 ## Credits
 
 Original solution by [Simon Buchan](https://stackoverflow.com/users/20135/simon-buchan) from [this comment](https://stackoverflow.com/a/50166137/6886817).
