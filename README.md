@@ -8,7 +8,7 @@ Checks whether current app instance is launched by Detox or not
 yarn add react-native-is-detox
 ```
 
-## Usage
+## Usage (async)
 
 ```js
 import { isDetox } from 'react-native-is-detox';
@@ -16,6 +16,8 @@ import { isDetox } from 'react-native-is-detox';
 // ...
 
 const result = await isDetox();
+
+console.log('Was app launched by Detox?', result);
 ```
 
 ```js
@@ -24,11 +26,31 @@ import { isDetox } from 'react-native-is-detox';
 function App() {
   useEffect(() => {
     isDetox().then((result) => {
-      if (result) {
-        console.log('Is Detox');
-        LogBox.ignoreAllLogs(true);
-      }
+      console.log('Was app launched by Detox?', result);
     });
+  }, []);
+
+  return <MyApp />;
+}
+```
+
+## Usage (sync)
+
+```js
+import { isDetoxSync } from 'react-native-is-detox';
+
+const result = isDetoxSync();
+
+console.log('Was app launched by Detox?', result);
+```
+
+```js
+import { isDetoxSync } from 'react-native-is-detox';
+
+function App() {
+  useEffect(() => {
+    const result = isDetoxSync();
+    console.log('Was app launched by Detox?', result);
   }, []);
 
   return <MyApp />;
