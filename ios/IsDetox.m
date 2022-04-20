@@ -4,14 +4,23 @@
 
 RCT_EXPORT_MODULE()
 
-RCT_REMAP_METHOD(isDetox,
-                 withResolver:(RCTPromiseResolveBlock)resolve
-                 withRejecter:(RCTPromiseRejectBlock)reject)
-{
++ (BOOL)requiresMainQueueSetup {
+    return NO;
+}
+
+- (BOOL) _isDetox {
     NSArray<NSString *> *args = [[NSProcessInfo processInfo] arguments];
     BOOL argsContainDetox = [args containsObject: @"-detoxServer"];
 
-    resolve(@(argsContainDetox));
+    return argsContainDetox;
+}
+
+RCT_EXPORT_METHOD(isDetox: (RCTPromiseResolveBlock)resolve rejecter: (RCTPromiseRejectBlock)reject) {
+    resolve(@(self._isDetox));
+}
+
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(isDetoxSync) {
+    return @(self._isDetox);
 }
 
 @end
