@@ -26,18 +26,26 @@ public class IsDetoxModule extends ReactContextBaseJavaModule {
         return NAME;
     }
 
-    @ReactMethod
-    public void isDetox(Promise promise) {
+    private boolean _isDetox() {
       try {
         Class<?> instrumentationRegistry = Class.forName("androidx.test.platform.app.InstrumentationRegistry");
         Method getArguments = instrumentationRegistry.getMethod("getArguments");
         Bundle args = (Bundle) getArguments.invoke(null);
         boolean argsContainDetox = args != null && args.getString("detoxServer") != null;
-        promise.resolve(argsContainDetox);
+
+        return argsContainDetox;
       } catch (Exception e) {
-        promise.resolve(false);
+        return false;
       }
     }
 
-    public static native boolean isDetox();
+    @ReactMethod
+    public void isDetox(Promise promise) {
+      promise.resolve(this._isDetox());
+    }
+
+    @ReactMethod(isBlockingSynchronousMethod = true)
+    public boolean isDetoxSync() {
+      return this._isDetox();
+    }
 }
