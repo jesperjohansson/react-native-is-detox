@@ -1,3 +1,7 @@
+<a href="https://www.npmjs.com/package/react-native-is-detox">
+  <img src="https://img.shields.io/npm/v/react-native-is-detox">
+</a>
+
 # react-native-is-detox
 
 Checks whether current app instance is launched by Detox or not
