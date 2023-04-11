@@ -1,4 +1,4 @@
 jest.mock('react-native-is-detox', () => ({
-  isDetox: () => false,
+  isDetox: async () => false,
   isDetoxSync: () => false,
 }));
