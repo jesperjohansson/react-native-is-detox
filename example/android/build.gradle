@@ -10,7 +10,6 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        jcenter()
     }
     dependencies {
         classpath "com.android.tools.build:gradle:3.5.4"
@@ -36,7 +35,6 @@ allprojects {
 
         google()
         mavenCentral()
-        jcenter()
         maven { url 'https://www.jitpack.io' }
         maven { url "$rootDir/../node_modules/detox/Detox-android" }
     }
